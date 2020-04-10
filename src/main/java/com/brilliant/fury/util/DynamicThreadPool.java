@@ -1,6 +1,5 @@
 package com.bj58.zhuanzhuan.jodis.common;
 
-import com.bj58.zhuanzhuan.zmonitor.javaclient.ZMonitor;
 import com.google.common.collect.Maps;
 import java.util.Map;
 import java.util.concurrent.ArrayBlockingQueue;
@@ -65,8 +64,7 @@ public class DynamicThreadPool {
                 super.beforeExecute(t, r);
                 //大致的活跃线程数
                 int activeCount = this.getActiveCount();
-                ZMonitor.max(ZMonitor.clusterName + "_thread_pool_active_count", activeCount,
-                    monitorKey);
+
                 int blockTaskCount = this.getQueue().size();
                 taskExecuteStart.set(System.currentTimeMillis());
 
@@ -107,7 +105,7 @@ public class DynamicThreadPool {
             @Override
             public void rejectedExecution(Runnable r, ThreadPoolExecutor executor) {
                 super.rejectedExecution(r, executor);
-                ZMonitor.sum(ZMonitor.clusterName + "_thread_pool_rejected", 1, monitorKey);
+
                 int maximumPoolSize = executor.getMaximumPoolSize();
                 if (maximumPoolSize < DYNAMIC_MAX_POOL_SIZE) {
                     modMaxPoolSize(monitorKey, DYNAMIC_MAX_POOL_SIZE);
@@ -125,8 +123,7 @@ public class DynamicThreadPool {
             Thread thread = Executors.defaultThreadFactory().newThread(runnable);
             thread.setUncaughtExceptionHandler((t, e) -> {
                 log.error("[ARCH_ZZJODIS_Uncaught_Exception]msg:{}", e.getMessage(), e);
-                ZMonitor.sum(ZMonitor.clusterName + "_thread_pool_uncaught_exception", 1,
-                    monitorKey);
+
             });
             thread.setName(monitorKey + "-" + thread.getName());
             return thread;
