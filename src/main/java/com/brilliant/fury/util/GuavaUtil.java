@@ -8,7 +8,8 @@ import java.nio.charset.StandardCharsets;
 
 /**
  * 常用的字符串及Guava的操作
- * Created by fury.
+ *
+ * @author fury.
  * version 2017/9/13.
  */
 public class GuavaUtil {
