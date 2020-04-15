@@ -1,10 +1,9 @@
-package com.bj58.zhuanzhuan.jodis.common;
+package com.brilliant.fury.util;
 
 import com.google.common.collect.Maps;
 import java.util.Map;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.ThreadFactory;

@@ -7,7 +7,9 @@ import com.google.common.hash.Hashing;
 import java.nio.charset.StandardCharsets;
 
 /**
- * Created by fury. version 2017/9/13.
+ * 常用的字符串及Guava的操作
+ * Created by fury.
+ * version 2017/9/13.
  */
 public class GuavaUtil {
 
