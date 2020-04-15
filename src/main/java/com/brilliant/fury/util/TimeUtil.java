@@ -97,6 +97,7 @@ public class TimeUtil {
     public static final long ONE_DAY_SECOND = 24 * 60 * 60;
 
     // ----- 字符串换Java时间对象 -----
+
     /**
      * 将 yyyy-MM-dd HH:mm:ss 换LocalDateTime.
      */
@@ -128,6 +129,7 @@ public class TimeUtil {
     }
 
     // ----- Java时间对象换字符串 -----
+
     /**
      * localDateTime -> yyyy-MM-dd HH:mm:ss （常用）
      */
@@ -155,6 +157,7 @@ public class TimeUtil {
     }
 
     // ----- Java时间对象换Java时间对象 -----
+
     /**
      * LocalDateTime -> Date
      */
@@ -210,6 +213,7 @@ public class TimeUtil {
     }
 
     // ----- Java时间对象 -> 整型 -----
+
     /**
      * LocalDateTime -> 1970 年算起的毫秒数(ms)
      */
@@ -236,6 +240,7 @@ public class TimeUtil {
     }
 
     // ----- 整型 -> 字符串 -----
+
     /**
      * unix毫秒 -> yyyy-MM-dd HH:mm:ss
      */
@@ -256,6 +261,7 @@ public class TimeUtil {
     }
 
     // ----- 获取当前时间 -----
+
     /**
      * 当前时间字符串 yyyy-MM-dd HH:mm:ss格式.
      */
@@ -289,6 +295,7 @@ public class TimeUtil {
     }
 
     // ----- 特殊时间计算 -----
+
     /**
      * 要求定时任务在延迟执行，计算需要延迟的秒数.
      */

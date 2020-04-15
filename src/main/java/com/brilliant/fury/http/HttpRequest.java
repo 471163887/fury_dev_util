@@ -11,7 +11,9 @@ import java.util.Map;
 public class HttpRequest {
     private String url;
     private Map<String, String> params;
-    //对于某些请求，传递的参数并非K=V的map。
+    /**
+     * 对于某些请求，传递的参数并非K=V的map。
+     */
     private Object param;
     private Map<String, String> headers;
 
@@ -50,13 +52,12 @@ public class HttpRequest {
         return this;
     }
 
-
     @Override
     public String toString() {
         return "HttpRequest{" +
-                "url='" + url + '\'' +
-                ", params=" + params +
-                ", headers=" + headers +
-                '}';
+            "url='" + url + '\'' +
+            ", params=" + params +
+            ", headers=" + headers +
+            '}';
     }
 }

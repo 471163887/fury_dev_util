@@ -25,7 +25,6 @@ public class HttpRequestRetryHandler implements org.apache.http.client.HttpReque
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-
     //设置的重试总次数
     private int retryCount;
 
@@ -45,7 +44,8 @@ public class HttpRequestRetryHandler implements org.apache.http.client.HttpReque
                 requestLine = ((HttpClientContext) context).getRequest().getRequestLine();
             }
 
-            logger.info("[ARCH_COMMON_exceed_retryCount]超出最大重试次数！！！requestLine={},retryCount={}", requestLine, retryCount);
+            logger.info("[ARCH_COMMON_exceed_retryCount]超出最大重试次数！！！requestLine={},retryCount={}",
+                requestLine, retryCount);
             return false;
         }
         // 服务器丢掉了连接，重试

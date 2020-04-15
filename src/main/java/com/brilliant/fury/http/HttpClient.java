@@ -356,20 +356,17 @@ public class HttpClient {
         try {
             // 获取请求结果
             response = httpClient.execute(request);
-
             // 解析请求结果
             HttpEntity entity = response.getEntity();
             // 转换结果
             String result = EntityUtils.toString(entity, StandardCharsets.UTF_8.name());
             // 关闭IO流
             EntityUtils.consume(entity);
-
             //解析返回header
             Map<String, String> headers = new HashMap<>(response.getAllHeaders().length);
             for (Header header : response.getAllHeaders()) {
                 headers.put(header.getName(), header.getValue());
             }
-
             res.setStatusCode(response.getStatusLine().getStatusCode()).setResult(
                 result).setHeaders(headers);
         } finally {
@@ -389,9 +386,9 @@ public class HttpClient {
     private static PoolingHttpClientConnectionManager buildPoolingHttpClientConnectionManager(
         Integer maxTotal, Integer maxPerRoute) {
         // 初始化连接池，可用于请求HTTP/HTTPS（信任所有证书）
-        PoolingHttpClientConnectionManager connectionManager = new
-            PoolingHttpClientConnectionManager(
-            getRegistry());
+        Registry<ConnectionSocketFactory> registry = getRegistry();
+        PoolingHttpClientConnectionManager connectionManager =
+            new PoolingHttpClientConnectionManager(registry);
 
         // 整个连接池的最大连接数
         String maxTotalProperty = null;
