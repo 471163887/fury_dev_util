@@ -2,13 +2,63 @@ package com.brilliant.fury.util;
 
 import com.google.common.collect.Lists;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 
 /**
+ * 集合常用操作。
+ * 1.判空
+ * 2.分割数组
+ *
  * @author by fury.
- * version 2020/4/9.
+ * version 2015/8/22.
  */
-public class ListUtil {
+public class CollectionUtil {
+
+    /**
+     * 集合为空集
+     */
+    public static <T> boolean isEmpty(Collection<T> c) {
+        return null == c || c.size() == 0;
+    }
+
+    /**
+     * 判断集合非空
+     */
+    public static <T> boolean isNotEmpty(Collection<T> c) {
+        return null != c && c.size() > 0;
+    }
+
+    /**
+     * 获取集合元素数量
+     */
+    public static <T> int size(Collection<T> c) {
+        if (null != c) {
+            return c.size();
+        }
+        return 0;
+    }
+
+    /**
+     * 获取 map 元素数量
+     */
+    public static <K, V> int size(Map<K, V> map) {
+        if (null != map) {
+            return map.size();
+        }
+        return 0;
+    }
+
+    /**
+     * 获取 list 的第一个元素
+     */
+    public static <T> T firstOrNull(List<T> list) {
+        if (isEmpty(list)) {
+            return null;
+        }
+        return list.get(0);
+    }
 
     /**
      * 分隔数组 根据段数分段 <多出部分在最后一个数组>
