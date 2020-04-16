@@ -6,7 +6,7 @@ import com.google.common.collect.SetMultimap;
 import java.util.Set;
 
 /**
- * key 和 value 可以相互查找的双向 MAP.
+ * 双向 MAP : key 和 value 可以相互查找.
  *
  * @author by fury.
  * version 2020/1/16.

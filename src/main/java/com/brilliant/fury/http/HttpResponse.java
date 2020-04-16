@@ -11,6 +11,7 @@ import java.util.Map;
 public class HttpResponse {
 
     private static final int PARAM_ERROR_CODE = -1;
+
     /**
      * 参数错误
      */
@@ -26,6 +27,7 @@ public class HttpResponse {
      * 返回结果
      */
     private String result;
+
     /**
      * 返回的header
      */

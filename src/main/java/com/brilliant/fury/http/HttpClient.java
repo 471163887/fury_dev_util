@@ -38,14 +38,10 @@ import org.slf4j.LoggerFactory;
 
 /**
  * 带有连接池的Http客户端工具类。具有如下特点：
- * <ol>
- * <li>基于apache的高性能Http客户端{@link org.apache.http.client.HttpClient}；</li>
- * <li>连接池的最大连接数默认是20，可通过{@link #init(int, int)}、或者系统变量-Dfury.common.http.max.total=200指定；</li>
- * <li>连接池的每个路由的最大连接数默认是2，可通过{@link #init(int, int)}、或者系统变量-Dfury.common.http.max.per
- * .route=10指定；</li>
- * <li>可设置超时，通过{@link HttpOptions}进行设置；</li>
- * <li>可重试，通过{@link HttpOptions}进行设置；</li>
- * </ol>
+ * 基于apache的高性能Http客户端
+ * 连接池的最大连接数默认是20，可通过{@link #init(int, int)}、或者系统变量-Dfury.common.http.max.total=200指定；
+ * 连接池的每个路由的最大连接数默认是2，可通过{@link #init(int, int)}、或者系统变量-Dfury.common.http.max.per.route=10指定；
+ * 可设置超时，重试次数，通过{@link HttpOptions}进行设置；
  *
  * @author fury.
  * version 2017/10/2.
