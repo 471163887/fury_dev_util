@@ -9,12 +9,12 @@ import org.slf4j.LoggerFactory;
 /**
  * 测试
  */
-public class UtilTest {
+public class UtilDemo {
 
-    private static final Logger log = LoggerFactory.getLogger(UtilTest.class);
+    private static final Logger log = LoggerFactory.getLogger(UtilDemo.class);
 
     @Test
-    public void httpClientTest() throws Exception {
+    public void httpClientGetDemo() throws Exception {
         String resp = HttpClient.get("https://www.baidu.com/");
         log.info("resp:{}", resp);
     }
