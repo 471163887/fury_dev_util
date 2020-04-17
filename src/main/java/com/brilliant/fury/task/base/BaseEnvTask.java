@@ -4,6 +4,8 @@ import java.time.LocalTime;
 import javax.annotation.Resource;
 
 /**
+ * 分布式互斥任务基类
+ *
  * 用法：
  * 1. 定时任务类继承BaseEnvTask
  * 2. 实现 call 方法
