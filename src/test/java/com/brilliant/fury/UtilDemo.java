@@ -1,6 +1,5 @@
 package com.brilliant.fury;
 
-
 import com.brilliant.fury.http.HttpClient;
 import org.junit.Test;
 import org.slf4j.Logger;
@@ -18,5 +17,6 @@ public class UtilDemo {
         String resp = HttpClient.get("https://www.baidu.com/");
         log.info("resp:{}", resp);
     }
+
 
 }
