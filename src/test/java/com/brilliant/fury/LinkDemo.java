@@ -16,6 +16,9 @@ public class LinkDemo {
 
     }
 
+    /**
+     * 单链表翻转.
+     */
     public ListNode reverseList(ListNode head) {
         if (null == head) {
             return null;

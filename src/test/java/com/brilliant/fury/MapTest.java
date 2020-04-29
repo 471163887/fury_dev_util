@@ -20,6 +20,9 @@ public class MapTest {
      * N 个人抢 M 个红包问题。
      * 思路:
      * 为每个红包增加独特的锁 (避免不同的线程，在抢不同的红包时相互阻塞)
+     *
+     * putIfAbsent 的特点：将判断和赋值合成一个原子操作，即（若key不存在，则执行put操作，并返回null）。
+     * 所以如果 putIfAbsent 返回了null, 说明put成功，即（抢到了红包）
      */
     @Test
     public void concurrentDemo() throws Exception {

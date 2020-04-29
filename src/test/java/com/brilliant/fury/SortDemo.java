@@ -15,11 +15,22 @@ public class SortDemo {
 
     @Test
     public void cleanTest() throws Exception {
-        Integer[] array = new Integer[]{12, 13, 24, 10, 3, 6, 90, 70};
+        Integer[] array = new Integer[]{12, 13, 24, 6, 3, 6, 90, 70};
         quickSort(array, 0, array.length - 1);
         System.out.println(Arrays.toString(array));
+
+        Integer[] array2 = new Integer[]{1, 6, 7, 5, 3};
+        quickSort(array2, 0, array2.length - 1);
+        System.out.println(Arrays.toString(array2));
     }
 
+    /**
+     * 快排思想：
+     * 1. 选中中间位置元素。
+     * 2. 中间元素 左边选出所有大值，右边选出所有小值，依次交换
+     * 3. 交换完成后，对子数组(low, j) (i, high)再次进行相同操作。
+     * @param high
+     */
     public void quickSort(Integer[] arr, int low, int high) {
         //check for empty or null array
         if (arr == null || arr.length == 0) {
