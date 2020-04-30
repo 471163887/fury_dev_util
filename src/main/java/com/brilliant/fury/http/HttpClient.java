@@ -205,9 +205,22 @@ public class HttpClient {
     }
 
     /**
+     * postJson  使用默认的配置.
+     */
+    public static HttpResponse postJson(String url, String json) throws Exception {
+        HttpPost httpPost = new HttpPost(url);
+        // 设置请求头
+        httpPost.addHeader("Content-Type", "application/json; charset=UTF-8");
+        // 设置请求参数
+        httpPost.setEntity(new StringEntity(json, StandardCharsets.UTF_8.name()));
+        return doHttp(httpPost, DEFAULT_HTTP_OPTION);
+    }
+
+    /**
      * 支持自定义Header
      */
-    public static HttpResponse postJson(String url, String json, Map<String, String> headers) throws Exception {
+    public static HttpResponse postJson(String url, String json,
+        Map<String, String> headers) throws Exception {
         HttpPost httpPost = new HttpPost(url);
         // 设置请求头
         httpPost.addHeader("Content-Type", "application/json; charset=UTF-8");
@@ -218,24 +231,17 @@ public class HttpClient {
         }
         // 设置请求参数
         httpPost.setEntity(new StringEntity(json, StandardCharsets.UTF_8.name()));
-
         return doHttp(httpPost, DEFAULT_HTTP_OPTION);
     }
 
     /**
-     * 发送 HTTP POST请求，参数格式JSON
-     * <p>请求参数是JSON格式，数据编码是UTF-8</p>
+     * postJson 指定 HttpOptions
      */
-    public static HttpResponse postJson(String url, String param,
+    public static HttpResponse postJson(String url, String json,
         HttpOptions httpOptions) throws Exception {
         HttpPost httpPost = new HttpPost(url);
-
-        // 设置请求头
         httpPost.addHeader("Content-Type", "application/json; charset=UTF-8");
-
-        // 设置请求参数
-        httpPost.setEntity(new StringEntity(param, StandardCharsets.UTF_8.name()));
-
+        httpPost.setEntity(new StringEntity(json, StandardCharsets.UTF_8.name()));
         return doHttp(httpPost, httpOptions);
     }
 
