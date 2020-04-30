@@ -1,11 +1,14 @@
 package com.brilliant.fury.http;
 
+import static com.brilliant.fury.http.HttpOptions.DEFAULT_HTTP_OPTION;
+
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Set;
 import java.util.stream.Collectors;
 import javax.net.ssl.SSLContext;
 import org.apache.http.Header;
@@ -202,6 +205,24 @@ public class HttpClient {
     }
 
     /**
+     * 支持自定义Header
+     */
+    public static HttpResponse postJson(String url, String json, Map<String, String> headers) throws Exception {
+        HttpPost httpPost = new HttpPost(url);
+        // 设置请求头
+        httpPost.addHeader("Content-Type", "application/json; charset=UTF-8");
+
+        Set<Map.Entry<String, String>> entries = headers.entrySet();
+        for (Map.Entry<String, String> entry : entries) {
+            httpPost.addHeader(entry.getKey(), entry.getValue());
+        }
+        // 设置请求参数
+        httpPost.setEntity(new StringEntity(json, StandardCharsets.UTF_8.name()));
+
+        return doHttp(httpPost, DEFAULT_HTTP_OPTION);
+    }
+
+    /**
      * 发送 HTTP POST请求，参数格式JSON
      * <p>请求参数是JSON格式，数据编码是UTF-8</p>
      */
@@ -311,7 +332,7 @@ public class HttpClient {
         HttpOptions httpOptions) throws Exception {
         //若为空，则用默认的。
         if (Objects.isNull(httpOptions)) {
-            httpOptions = HttpOptions.DEFAULT_HTTP_OPTION;
+            httpOptions = DEFAULT_HTTP_OPTION;
         }
 
         RequestConfig.Builder requestConfigBuilder = RequestConfig.custom();
