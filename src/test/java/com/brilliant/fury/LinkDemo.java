@@ -7,6 +7,7 @@ package com.brilliant.fury;
 public class LinkDemo {
 
     public class ListNode {
+
         int val;
         ListNode next;
 
@@ -29,13 +30,13 @@ public class LinkDemo {
         ListNode prev = null;
         ListNode curr = head;
         while (curr != null) {
-            // 取出下一个节点的地址，为了交换后可以继续遍历
+            // 1.取出下一个节点的地址，为了交换后可以继续遍历
             ListNode nextTemp = curr.next;
-            // 翻转指针
+            // 2.翻转指针
             curr.next = prev;
-            // 保存当前节点，实际也是最后一个节点
+            // 3.保存当前节点，实际也是最后一个节点
             prev = curr;
-            // 当前指针后移
+            // 4.当前指针后移
             curr = nextTemp;
         }
         return prev;

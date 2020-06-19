@@ -25,4 +25,10 @@ public class ListTest {
         //list = null;
         //log.info("resp:{}", list.size());
     }
+
+    @Test
+    public void LongTest() throws Exception {
+        Long a = 100L;
+        log.info("a.toString={}", a.toString());
+    }
 }
