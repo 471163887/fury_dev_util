@@ -5,6 +5,7 @@ import com.google.common.base.Splitter;
 import com.google.common.hash.HashCode;
 import com.google.common.hash.Hashing;
 import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
 
 /**
  * 常用的字符串及Guava的操作
@@ -101,6 +102,12 @@ public class GuavaUtil {
     public static String genMurHash(String str) {
         HashCode hashCode = Hashing.murmur3_128().hashString(str, StandardCharsets.UTF_8);
         return hashCode.toString();
+    }
+
+    public static String sortString(String str)  {
+        char[] chars = str.toCharArray();
+        Arrays.sort(chars);
+        return String.valueOf(chars);
     }
 
 }
